@@ -224,8 +224,24 @@ class GPUStatCollection(object):
     @staticmethod
     def new_query():
         # 1. get the list of gpu and status
-        gpu_query_columns = ('index', 'uuid', 'name', 'power.limit', 'power.draw', 'clocks.video', 'clocks.mem', 'fan.speed', 'temperature.gpu',
-                             'utilization.gpu', 'memory.used', 'memory.total')
+        gpu_query_columns = ('index',
+                             'pci.bus',
+                             'uuid',
+                             'name',
+                             'driver_version',
+                             'count',
+                             'power.default_limit',
+                             'power.limit',
+                             'power.draw',
+                             'clocks.video',
+                             'clocks.mem',
+                             'fan.speed',
+                             'temperature.gpu',
+                             'utilization.gpu',
+                             'utilization.memory',
+                             'memory.used',
+                             'memory.total',
+                             'pstate')
         gpu_list = []
 
         smi_output = execute_process(
